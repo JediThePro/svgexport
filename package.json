@@ -28,7 +28,7 @@
   },
   "main": "index.js",
   "bin": {
-    "svgexport": "bin/index.js"
+    "svg-export": "bin/index.js"
   },
   "devDependencies": {
     "mocha": "*",
