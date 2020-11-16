@@ -1,4 +1,4 @@
-# svgexport
+# <code>svg-export</code>
 
 svgexport is a Node.js module and command-line tool for exporting SVG files to PNG and JPEG, it uses Puppeteer for rendering SVG files.
 
@@ -6,13 +6,13 @@ svgexport is a Node.js module and command-line tool for exporting SVG files to P
 
 #### Installation
 ```
-npm install svgexport -g
+npm install svg-export -g
 ```
 
 #### Usage
 ```usage
-svgexport <input file> <output file> <options>
-svgexport <datafile>
+svg-export <input file> <output file> <options>
+svg-export <datafile>
 
 <options>        [<format>] [<quality>] [<input viewbox>] [<output size>] [<resize mode>] [<styles>]
 
@@ -43,32 +43,32 @@ svgexport <datafile>
 
 Scale 1.5x proportionally:
 ```
-svgexport input.svg output.png 1.5x
+svg-export input.svg output.png 1.5x
 ```
 
 Scale proportionally to set output width to 32px:
 ```
-svgexport input.svg output.png 32:
+svg-export input.svg output.png 32:
 ```
 
 Scale proportionally and pad output to set output width:height to 32px:54px:
 ```
-svgexport input.svg output.png pad 32:54
+svg-export input.svg output.png pad 32:54
 ```
 
 Export `-1:-1:24:24` (`left:top:width:height`) of input.svg to output.png:
 ```
-svgexport input.svg output.png -1:-1:24:24 1x
+svg-export input.svg output.png -1:-1:24:24 1x
 ```
 
 Set output JPEG quality:
 ```
-svgexport input.svg output.jpg 80%
+svg-export input.svg output.jpg 80%
 ```
 
 Use a CSS to style input SVG:
 ```
-svgexport input.svg output.jpg "svg{background:silver;}"
+svg-export input.svg output.jpg "svg{background:silver;}"
 ```
 
 By default, Puppeteer has a page load timeout of 30 seconds. This might not be
@@ -76,32 +76,21 @@ enough for large SVG files. If you want to change the page timeout, set the
 `SVGEXPORT_TIMEOUT` environment variable to the desired number of seconds.
 ```bash
 // One minute timeout
-SVGEXPORT_TIMEOUT=60 svgexport input.svg output.png
+SVGEXPORT_TIMEOUT=60 svg-export input.svg output.png
 ```
 
 ### Node.js Module
 
 #### Installation
 ```
-npm install svgexport --save
+npm install svg-export --save
 ```
 
 #### Usage
 
 ```javascript
-var svgexport = require('svgexport');
+var svgexport = require('svg-export');
 
 svgexport.render(datafile, callback);
 ```
 `datafile` can be an object, an array of objects or a JSON file path, see command line usage for its format.
-
-### Contributors
-
-svgexport was migrated from PhantomJS to Puppeteer by [Michael Heerklotz](https://github.com/MichaelHeerklotz).
-
-### License
-
-Copyright (c) 2016 Ali Shakiba  
-Available under the MIT license
-
-*Keywords: svg, export, rasterize, converter, png, jpeg, jpg, cli, command-line, inkscape, illustrator, coreldraw*
